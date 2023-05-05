@@ -18,17 +18,42 @@ document.getElementById("btnTinhTienThue").onclick = function () {
   if (thuNhapChiuThue > 0 && thuNhapChiuThue <= 60000000) {
     tienThue = thuNhapChiuThue * TAX_60;
   } else if (thuNhapChiuThue > 60000000 && thuNhapChiuThue <= 120000000) {
-    tienThue = thuNhapChiuThue * TAX_60_120;
+    tienThue = 60000000 * TAX_60 + (thuNhapChiuThue - 60000000) * TAX_60_120;
   } else if (thuNhapChiuThue > 120000000 && thuNhapChiuThue <= 210000000) {
-    tienThue = thuNhapChiuThue * TAX_120_210;
+    tienThue =
+      60000000 * TAX_60 +
+      60000000 * TAX_60_120 +
+      (thuNhapChiuThue - 120000000) * TAX_120_210;
   } else if (thuNhapChiuThue > 210000000 && thuNhapChiuThue <= 384000000) {
-    tienThue = thuNhapChiuThue * TAX_210_384;
+    tienThue =
+      60000000 * TAX_60 +
+      60000000 * TAX_60_120 +
+      90000000 * TAX_120_210 +
+      (thuNhapChiuThue - 210000000) * TAX_210_384;
   } else if (thuNhapChiuThue > 384000000 && thuNhapChiuThue <= 624000000) {
-    tienThue = thuNhapChiuThue * TAX_384_624;
+    tienThue =
+      60000000 * TAX_60 +
+      60000000 * TAX_60_120 +
+      90000000 * TAX_120_210 +
+      174000000 * TAX_210_384 +
+      (thuNhapChiuThue - 384000000) * TAX_384_624;
   } else if (thuNhapChiuThue > 624000000 && thuNhapChiuThue <= 960000000) {
-    tienThue = thuNhapChiuThue * TAX_624_920;
+    tienThue =
+      60000000 * TAX_60 +
+      60000000 * TAX_60_120 +
+      90000000 * TAX_120_210 +
+      174000000 * TAX_210_384 +
+      240000000 * TAX_384_624 +
+      (thuNhapChiuThue - 624000000) * TAX_624_920;
   } else if (thuNhapChiuThue > 960000000) {
-    tienThue = thuNhapChiuThue * TAX_RESTANT;
+    tienThue =
+      60000000 * TAX_60 +
+      60000000 * TAX_60_120 +
+      90000000 * TAX_120_210 +
+      174000000 * TAX_210_384 +
+      240000000 * TAX_384_624 +
+      336000000 * TAX_624_920 +
+      (thuNhapChiuThue - 960000000) * TAX_RESTANT;
   } else {
     alert("Số không hợp lệ !");
   }
